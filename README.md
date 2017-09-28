@@ -12,27 +12,28 @@ Supports https devices on HomeBridge Platform
 
 
 Configuration sample file:
-
  ```
 "accessories": [
-        "accessories": [
-        {
-            "accessory": "HttpTemphum",
-            "name": "Living Room Weather",
-            "url": "http://192.168.1.210/weather",
-            "sendimmediately": "",
-            "http_method": "GET"
-        }
-    ]
+    {
+        "accessory": "HttpTemphum",
+        "http_method": "GET",
+        "name": "Living Room Weather",
 
+        "manufacturer": "",
+        "model": "",
+        "serial": "",
+
+        "url": "http://192.168.1.210/weather",
+        "humidity": true,
+    }
+]
 ```
 
-
-The /weather endpoint will return a json looking like this
+The /weather endpoint has to return a json looking like this
 ```
 {
-	"temperature": 25.8,
-	"humidity": 38
+    "temperature": 25.8,
+    "humidity": 38
 }
 ```
 

@@ -1,22 +1,27 @@
 {
-    "bridge": {
-        "name": "HomebridgePI",
-        "username": "CD:22:3D:E3:CE:30",
-        "port": 51826,
-        "pin": "031-45-156"
-    },
-    
-    "description": "The Onion!",
+	"bridge": {
+		"name": "HomebridgePI",
+		"username": "CD:22:3D:E3:CE:30",
+		"port": 51826,
+		"pin": "031-45-156"
+	},
 
-    "platforms": [],
+	"description": "The Onion!",
 
-    "accessories": [
-        {
-            "accessory": "HttpTemphum",
-            "name": "Living Room Weather",
-            "url": "http://192.168.1.210/weather",
-            "http_method": "GET",
-            "humidity": true
-        }
-    ]
+	"platforms": [],
+
+	"accessories": [
+		{
+			"accessory": "HttpTemphum",
+			"http_method": "GET",
+			"name": "Living Room Weather",
+			
+			"manufacturer": "",
+			"model": "",
+			"serial": "",
+			
+			"url": "http://192.168.1.210/weather",
+			"humidity": true,
+		}
+	]
 }
