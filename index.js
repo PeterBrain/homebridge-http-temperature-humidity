@@ -15,7 +15,6 @@ module.exports = function (homebridge) {
 
 function HttpTemphum(log, config) {
 	this.log = log;
-
 	// url info
 	this.url = config["url"];
 	this.http_method = config["http_method"] || "GET";
@@ -46,15 +45,13 @@ HttpTemphum.prototype = {
 
 	getState: function(callback) {
 		var body, res;
-		
+
 		try {
-			
 			res = request(this.http_method, this.url, {'timeout': 5000});
-			
+
 			if (res === null) {
 				this.log('No response');
 			}
-
 			else if (res.statusCode >= 300) {
 				this.log('HTTP power function failed');
 				/*var err = new Error('Server responded with status code ' + res.statusCode);
@@ -63,14 +60,11 @@ HttpTemphum.prototype = {
 				err.body = res.body;
 				callback(err);*/
 			}
-
 			else if (res.body.toString().indexOf("nan") > -1) {
 					this.log('Ignoring value: nan');
 			}
-
 			else {
 				var info = JSON.parse(res.body);
-
 				temperatureService.setCharacteristic(Characteristic.CurrentTemperature, info.temperature);
 
 				if (this.humidity !== false) {
@@ -87,11 +81,9 @@ HttpTemphum.prototype = {
 
 				callback(null, this.temperature);
 			}
-			
 		} catch(e) {
 			this.log(e.message);
 		}
-		
 	},
 
 	identify: function(callback) {
