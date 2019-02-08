@@ -69,7 +69,7 @@ HttpTemphum.prototype = {
         temperatureService.setCharacteristic(Characteristic.CurrentTemperature, info.temperature);
 
         if (this.humidity !== false) {
-          haracteristic.CurrentRelativeHumidity, info.humidity);
+          humidityService.setCharacteristic(Characteristic.CurrentRelativeHumidity, info.humidity);
         }
 
         //this.log(res.body); //we don't have to see the body
@@ -113,7 +113,7 @@ HttpTemphum.prototype = {
       humidityService
         .getCharacteristic(Characteristic.CurrentRelativeHumidity)
         .setProps({
-          minValue: -100,
+          minValue: 0, // -100
           maxValue: 100
         })
         .on('get', this.getStateHumidity.bind(this));
